@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="utf-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		html,body{
+			margin: 0;
+			padding: 0;
+			border: 0;	
+			height: 100%;
+			width: 100%;
+			font-size: 100%;
+			font-family: "微软雅黑", sans-serif;
+			color: #ffffff;
+			background-color: white;
+			position:absolute;
+			z-index:1;
+		}
+		input:hover{
+			opacity: 0.8;
+		}
+		.head{
+			width: 100%;
+			/*background-image: url("2.jpg");*/
+			background-position:center;
+			background-color: #37AE60;
+		}
+		.head-nav{
+			
+			width: 100%;
+			background-color: #000;
+			opacity: 0.4;
+		}
+		.head-nav p{
+			margin: 1em 1em;
+			display: inline;
+			font-size: 150%;	
+		}
+		.head-nav input{
+			margin: 1em 0em;
+			display: inline-block;
+			border: 0px;
+			font-size: 150%;
+		}
+		#Login{
+			width: 4em;
+			margin: 1em 0.1em 1em 0;
+			border: 0px;
+			float: right;
+		}
+		#register{
+			width: 4em;
+			margin: 1em 1em 1em 0;
+			border: 0px;
+			float: right;
+		}
+		
+		
+		.head-main{
+			
+			padding-bottom: 4em;
+			text-align: center;
+		}
+		.head-main p{
+			font-size: 400%;
+			color: #E7FEE0;
+		}
+		.head-main-button button{
+			padding: 1em;
+			margin: 0em 1em;
+			font-size: 150%;
+			border: 0px;
+			color: #37AE60;
+			background-color: #E7FEE0;
+			opacity: 0.9;
+		}
+		.head-main-button button:hover{
+			opacity: 0.6;
+		}
+	</style>
+
+	<style type="text/css">
+		.main{
+			width: 100%;
+			text-align: center;
+		}
+		.main-nav{
+			margin: 2em;
+			font-size: 200%;
+			color: #37AE60;
+			cursor: pointer;
+		}
+		.main-nav span+span{
+			color: #878E80;
+		}
+		.main-list{
+			margin: 1em;
+			padding: 1em;
+			text-align: center;
+		}
+		.main-list-block{
+			margin: 1em;
+		}
+		.main-list-block-img{
+			display: inline-block;
+			margin: 1em;
+			width: 30em;
+			height: 20em;	
+			color: #37AE60;
+			cursor: pointer;
+			color: #000;
+		}
+		.main-list-block-img:hover{
+			opacity: 0.7;
+
+		}
+		.main-list-block-img b{
+			font-size: 130%;
+		}
+
+		.friend-list{
+			margin: 1em;
+			padding: 1em;
+			text-align: center;
+		}
+		.friend-list-block{
+			width: 40em;
+			margin: auto auto;
+			background-color: #f0f0f0;
+			margin-top: 2em;
+			padding: 1em;
+			text-align: left;
+		}
+		.friend-list-block-headImg{
+			
+			display: inline-block;
+			width: 5em;
+			height: 5em;	
+			color: #37AE60;
+			cursor: pointer;
+		}
+		.friend-list-block-comment{
+			margin-left: 3em;
+			display: inline-block;
+			color: #000;
+		}
+		.friend-list-block-img{
+			padding-top: 2em;
+			
+			display: inline-block;
+			margin-left: 8em;
+			width: 30em;
+			height: 30em;	
+			color: #37AE60;
+			cursor: pointer;
+			color: #000;
+		}
+		.friend-list-block-img img:hover{
+			opacity: 0.7;
+
+		}
+	</style>
+
+	<style type="text/css">
+		.user{
+			position: absolute;
+			top: 35%;
+			left: 0;
+			right: 0;
+			font-family: "微软雅黑", sans-serif;
+			opacity: 0.95;
+			z-index: 9;
+			color: #606270;
+			background-color: #F9FFF0;
+			width: 20%;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid #606270;
+			text-align: center;
+			transition: opacity 0.5s;
+			-webkit-transition:opacity 0.5s;
+		}
+		.user input{
+			margin:1em;
+		}
+		.user input[type=submit]{
+			width: 100%;
+			margin: 1em 0 0;
+			font-family: "微软雅黑", sans-serif;
+			font-size: 130%;	
+			background-color: #57BE80;;
+			padding: 0.5em 0;
+			 cursor: pointer;
+			 color: #FFF;
+			 border-top: 0px;
+			 border-right: 0px;
+			 border-left: 0px;
+			 border-bottom: 1px solid #606270;
+		}
+		.user-title{
+			margin-left: auto;
+			margin-right: auto;	
+		}
+		
+		.user-title span{
+			width: 4em;
+			display: inline-block;
+			cursor: pointer;
+			margin: 1em 0em 1em;
+		}
+		.form2 input[type=submit]{
+			background-color: #a66270;
+
+		} 
+		.display{
+			display: block;
+			
+			transition: display 1s;
+			-webkit-transition:display 1s;
+			transition: opacity 1s;
+			-webkit-transition:opacity 1s;
+		}
+		.hidden{
+			/*visibility: hidden;*/
+			display: none;
+			opacity: 0;
+			transition: display 1s;
+			-webkit-transition:display 1s;
+			transition: opacity 1s;
+			-webkit-transition:opacity 1s;
+		}
+		.background{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 3;	
+			background-color: #000000;
+			opacity: 0.7;
+			transition: display 1s;
+			-webkit-transition:display 1s;
+			transition: opacity 1s;
+			-webkit-transition:opacity 1s;
+			/*transition: display 1s;*/
+			 /*-webkit-transition:display 1s;*/
+		}
+			
+	</style>
+
+</head>
+	<div class="head">
+		<div class="head-nav">
+				<p>TRAVELS</p>
+				<input type="text">
+				<input type="button" value="Search">
+				<input type="button" id="register" value="register"  onclick="register()">
+				<input type="button" id="Login" value="Login"  onclick="login()">
+				
+		</div>
+		<div class="head-main">
+				<p>Moving</p>
+				<div class="head-main-button">
+					<button>Find Travals</button>
+					<a href="create.html"><button>New Travals</button></a>
+				</div>
+		</div>
+	</div>
+	
+	<div class="main">
+		<div class="main-nav">
+			<span onclick="Hot()" id="Hot">Hot Travals</span>
+			<span>|</span>
+			<span onclick="friend()" id="TimeLine">TimeLine</span>
+		</div>
+
+		
+		<div class="main-list " id="main-list">
+			<div class="main-list-block">
+				<div class="main-list-block-img">
+					<img src="1.jpg" width="100%" height="100%"><br>
+					<b>picture introduction|&nbsp;by user1</b><br>
+					<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+				<div class="main-list-block-img">
+					<img src="2.jpg" width="100%" height="100%"><br>
+					<b>picture introduction|&nbsp;by user1</b><br>
+					<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+			</div>
+			<div>
+				<div class="main-list-block-img">
+					<img src="3.jpg" width="100%" height="100%"><br>
+					<b>picture introduction|&nbsp;by user1</b><br>
+					<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+				<div class="main-list-block-img">
+					<img src="4.jpg" width="100%" height="100%"><br>
+					<b>picture introduction|&nbsp;by user1</b><br>
+					<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="friend-list hidden" id="friend-list">
+			<div class="friend-list-block">
+				<div>
+				<div class="friend-list-block-headImg">
+					<img src="pic3.jpg" width="100%" height="100%s" alt="">
+				</div>
+				<div class="friend-list-block-comment">
+				<b>picture introduction|&nbsp;by user1</b><br>
+				<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+				</div>
+
+				<div class="friend-list-block-img">
+
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					
+				</div>
+			
+			</div>
+			<div class="friend-list-block">
+				<div>
+				<div class="friend-list-block-headImg">
+					<img src="pic3.jpg" width="100%" height="100%s" alt="">
+				</div>
+				<div class="friend-list-block-comment">
+				<b>picture introduction|&nbsp;by user1</b><br>
+				<span>2015/8/9 / 8days / 128 picures</span>
+				</div>
+				</div>
+
+				<div class="friend-list-block-img">
+
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					<img src="1.jpg" width="30%" height="30%" alt="">
+					
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+	<div class="user hidden"  id="userForm">
+		<div class="user-title">
+			<span onclick="login()">Login</span><span>|</span>
+			<span onclick="register()">register</span>
+		</div>
+		<form class="form1" id="form1" action="index.jsp?action=login" method="post">
+		<label>用户:</label>
+		<input type="text" name="username">
+		<br>
+		<label>密码:</label>
+		<input type="password" name="password">
+		<br>
+		<input type="submit" value="登陆">
+		</form>
+
+		<form class="form2 hidden" id="form2" action="index.jsp?action=register" method="post">
+		<label>用户:</label>
+		<input type="text" name="username">
+		<br>
+		<label>邮箱:</label>
+		<input type="text" name="email">
+		<br>
+		<label>密码:</label>
+		<input type="password" name="password">
+		<br>
+		<input type="submit" value="注册">
+		</form>
+
+	</div>
+
+	<div class="background hidden" id="background" onclick="bgdDis()"></div>
+<body>
+
+</body>
+<script type="text/javascript">
+	function login(){
+		document.getElementById("form1").setAttribute("class", "form1 display");
+		document.getElementById("userForm").setAttribute("class", "user display");
+		document.getElementById("background").setAttribute("class", "background display");
+		document.getElementById("form2").setAttribute("class", "form2 hidden");
+		// document.getElementById("userForm").style.display="block";
+	}
+	function bgdDis(){
+
+		document.getElementById("userForm").setAttribute("class", "user hidden");
+		document.getElementById("background").setAttribute("class", "background hidden");
+	}
+	function register(){
+		document.getElementById("userForm").setAttribute("class", "user display");
+		document.getElementById("form2").setAttribute("class", "form2 display");
+		document.getElementById("form1").setAttribute("class", "form1 hidden");
+		document.getElementById("background").setAttribute("class", "background display");
+	}
+	function friend(){
+		document.getElementById("TimeLine").style.color="#37AE60";
+		document.getElementById("Hot").style.color="#878E80";
+		document.getElementById("main-list").setAttribute("class", "main-list hidden");
+		document.getElementById("friend-list").setAttribute("class", "friend-list display");
+	}
+	function Hot(){
+		document.getElementById("TimeLine").style.color="#878E80";
+		document.getElementById("Hot").style.color="#37AE60";
+		document.getElementById("main-list").setAttribute("class", "main-list display");
+		document.getElementById("friend-list").setAttribute("class", "friend-list hidden");
+	}
+</script>
+<script type="text/javascript">
+	
+</script>
+</html>
