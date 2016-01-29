@@ -108,7 +108,7 @@ if (mydatabase.connect()) { // 连接数据库成功
 		<div class="head-main">
 				<p>Moving</p>
 				<div class="head-main-button">
-					<a href="Travels.jsp"><button>Find Travals</button></a>
+					<a href="Travels.jsp"><button>My Travals</button></a>
 					<a href="create.jsp"><button>New Travals</button></a>
 				</div>
 		</div>

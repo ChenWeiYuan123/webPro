@@ -1,6 +1,15 @@
-function edit(){
-		alert("排版的页面还没写完")
+var imgListFlag=false
+function edit(flagText){
+	if(flagText=="下一步[修改行程]"){
+		modifyTrav(document.getElementById("modify"))
 	}
+	if(flagText=="图片选择完毕，下一步[编辑排版]"){
+		editTrav(document.getElementById("edit"))
+	}
+	else if(flagText=="下一步[发布行程]"){
+		publishTrav(document.getElementById("publish"))
+	}
+}
 	function getAddr(){
 		var textt=document.createTextNode("aaa")
 		var addRouteOld=document.querySelector(".addRoute")
@@ -23,16 +32,36 @@ function edit(){
 	function uploadImg(t){
 		t.classList.remove("opacity")
 		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.classList.add("opacity")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.classList.add("opacity")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.classList.add("opacity")
 		document.querySelector(".modify").classList.add("hidden")
+		document.getElementById("imgUpload").classList.remove("hidden")
+		document.querySelector(".edit").classList.add("hidden")
+		document.querySelector(".title").classList.add("hidden")
+		document.querySelector(".publish").classList.add("hidden")
 		document.getElementById("imgUpload").classList.remove("hidden")
 	}
 	function modifyTrav(t){
 		t.classList.remove("opacity")
 		document.querySelector(".head-main-button").firstElementChild.classList.add("opacity")
+		if(!imgListFlag){
+			document.getElementById("imgList").classList.remove("hidden")
+			imgListFlag=true
+		}
+		else{
+			document.getElementById("imgList").classList.add("hidden")
+		}
+		document.getElementById("nobr").innerHTML=""
+		document.querySelector(".edit").innerHTML=""
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.classList.add("opacity")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.classList.add("opacity")
 		document.querySelector(".modify").classList.remove("hidden")
 		document.getElementById("imgUpload").classList.add("hidden")
+		document.querySelector(".edit").classList.add("hidden")
+		document.querySelector(".publish").classList.add("hidden")
+		document.getElementById("add").innerHTML="添加地点"
+		showEditRevese()
 		showModify()
-
 	}
 	function showModify(){
 		if(!upload){
@@ -62,12 +91,14 @@ function edit(){
 			upload=true
 		}
 	}
-	function input(){
+	function input(t){
+		var flagText=t.firstElementChild.innerHTML
+		
 		if (document.querySelector(".imgList").firstElementChild) {
 			document.getElementById("userForm").setAttribute("class", "user display");
 			document.getElementById("background").setAttribute("class", "background display");
 	    }else{
-        	edit()
+        	edit(flagText)
 	    }
 		
 	}
@@ -75,4 +106,26 @@ function edit(){
 
 		document.getElementById("userForm").setAttribute("class", "user hidden");
 		document.getElementById("background").setAttribute("class", "background hidden");
+	}
+
+	function showEditRevese(){
+
+
+		var RouteNewList=document.querySelectorAll(".addRouteNewBlock")
+		var lenRoute=RouteNewList.length
+
+		for(var i=0;i<lenRoute;i++){
+			changeBlock(RouteNewList.item(i),"addRouteNew","addRouteNewBlock")
+			changeBlock(RouteNewList.item(i).querySelector(".addrNewBlock"),"addrNew","addrNewBlock")
+			var imgBlockList=RouteNewList.item(i).querySelectorAll(".imgBlockSmallBlock")
+			var lenImg=imgBlockList.length
+			for(var j=0;j<lenImg;j++){
+				// RouteNewList.item(i).removeChild(imgBlockList.item(j).nextElementSibling)
+				imgBlockList.item(j).nextElementSibling.classList.add("hidden")
+				changeBlock(imgBlockList.item(j),"imgBlockSmall","imgBlockSmallBlock")
+				
+			}
+		}
+
+		
 	}

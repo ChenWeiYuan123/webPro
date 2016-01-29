@@ -1,15 +1,22 @@
+var textareaFlag=false
 function editTrav(t){
 
 		t.classList.remove("opacity")	
+		document.querySelector(".head-main-button").firstElementChild.classList.add("opacity")
 		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.classList.add("opacity")
-
-		document.querySelector(".edit").classList.remove("hidden")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.classList.add("opacity")
+		document.querySelector(".edit").classList.add("hidden")
+		document.querySelector(".imgList").classList.add("hidden")
 		// document.querySelector(".modify").classList.add("hidden")
-
+		document.getElementById("nobr").innerHTML=""
+		document.querySelector(".edit").innerHTML=""
+		document.querySelector(".publish").classList.add("hidden")
+		document.getElementById("imgUpload").classList.add("hidden")
+		document.querySelector(".title").classList.remove("hidden")
 		showEdit()
 	}
 	function showEdit(){
-
+		document.querySelector(".modify").classList.remove("hidden")
 
 		var RouteNewList=document.querySelectorAll(".addRouteNew")
 		var lenRoute=RouteNewList.length
@@ -37,11 +44,17 @@ function editTrav(t){
 				comment.setAttribute("placeholder","在此写上对照片的描述~")
 				comment.rows=15
 				comment.classList.add("text")
-				if(j!=lenImg-1){
+				if(!textareaFlag){
 					
-					RouteNewList.item(i).insertBefore(comment,imgBlockList.item(j).nextElementSibling)
-				}else{
-					RouteNewList.item(i).appendChild(comment)
+					if(j!=lenImg-1){
+						
+						RouteNewList.item(i).insertBefore(comment,imgBlockList.item(j).nextElementSibling)
+					}else{
+						RouteNewList.item(i).appendChild(comment)
+					}
+				}
+				else{
+					imgBlockList.item(j).nextElementSibling.classList.remove("hidden")
 				}
 				var imgSrc=imgBlockList.item(j).firstElementChild.src
 				var imgE=document.createElement("p")
@@ -51,7 +64,9 @@ function editTrav(t){
 			}
 			routeListArray.push(addrImgArray)
 		}
-		document.getElementById("add").innerHTML="发布行程"
+		if(!textareaFlag)
+			textareaFlag=true
+		document.getElementById("add").innerHTML="下一步[发布行程]"
 		
 	}
 

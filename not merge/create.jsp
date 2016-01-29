@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" import="com.group.MyDataBase, java.sql.*, javax.servlet.http.Cookie"%>
+<%@ page contentType="text/html;charset=utf-8" import="com.group.MyDataBase, java.sql.*, javax.servlet.http.Cookie" import="com.group.org.json.*"%>
 <% 
 // JSP 代码
 %>
@@ -23,9 +23,7 @@ if("".equals(user)) {
 %>
 
 
-<% 
-// HTML代码
-%>
+
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -75,7 +73,7 @@ if("".equals(user)) {
 			
 		</div>
 		<div class="addRoute" ondrop="drop(event)" ondragover="allowdrag(event)">
-			<div class="addr" onclick="input(this)">
+			<div class="addr" onclick=" input(this)">
 				<span id="add">下一步[修改行程]</span>
 			</div>
 		</div>
@@ -83,7 +81,29 @@ if("".equals(user)) {
 
 	
 	<div class="edit hidden">
-
+		<% 
+// HTML代码
+JSONObject  obj= new JSONObject(route); 
+	Iterator it =  obj.keys();  
+	while (it.hasNext()) { 
+		 String key = (String) it.next(); %><div class="main">
+		 	<h1><%=key %></h1>
+		 <%  
+	     String value = obj.getString(key);  
+	     JSONArray array = obj.getJSONArray(key);  
+	     for(int i=0;i<array.length();i++){  
+	         JSONObject jsonobject = array.getJSONObject(i);
+	         Iterator jsonkey=jsonobject.keys();
+	         if(jsonkey.hasNext()){
+	        	 String key2=(String)jsonkey.next();%>
+	        	 <p><%=key2 %>:
+	        	 <%
+	        	 String res1=jsonobject.getString(key2);
+	        	 %><%=res1%></p><% 
+	         }         
+	     } %></div><div class="traffic"></div><% 
+	}
+%>
 	</div>
 	<div class="publish hidden">
 

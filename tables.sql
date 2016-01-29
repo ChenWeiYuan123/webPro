@@ -1,6 +1,6 @@
 drop database if exists proj;
-create database proj;
-use proj;
+create database 13354005;
+use 13354005;
 
 
 %==============================实体表格================================

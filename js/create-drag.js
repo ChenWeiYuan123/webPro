@@ -18,7 +18,7 @@ document.addEventListener("dragstart", function(event) {
 	        event.target.firstElementChild.innerHTML=""
 	        if (document.querySelector(".imgList").firstElementChild) {
 	        }else{
-	        	document.getElementById("add").innerHTML="图片选择完毕，请点击开始编辑排版"
+	        	document.getElementById("add").innerHTML="图片选择完毕，下一步[编辑排版]"
 	        	document.querySelector(".imgList").classList.add("hidden")
 	        	// document.getElementById("add").onclick=edit
 	        }

@@ -5,7 +5,9 @@ document.querySelector(".head-main-button").firstElementChild.classList.remove("
 		document.getElementById("img").width="100%"
 	}
 	function show(){
-
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.classList.add("opacity")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.classList.add("opacity")
+		document.querySelector(".head-main-button").firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.classList.add("opacity")
 		if(!upload){
 			var file = document.getElementById("file").files
 			var imgUpload=document.getElementById("imgUpload")
@@ -31,6 +33,11 @@ document.querySelector(".head-main-button").firstElementChild.classList.remove("
 				imgUpload.appendChild(imgBlock)
 			}
 			document.getElementById("fileDiv").classList.add("hidden")
-			
+			document.querySelector(".modify").classList.remove("hidden")
+			document.querySelector(".imgList").classList.add("hidden")
+			document.querySelector(".edit").classList.add("hidden")
+			document.querySelector(".publish").classList.add("hidden")
+			document.getElementById("nobr").innerHTML=""
+			document.querySelector(".edit").innerHTML=""
 		}
 	}

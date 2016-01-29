@@ -40,7 +40,7 @@ if("".equals(user)) {
 <body>
 	<div class="head">
 		<div class="head-nav">
-				<p>TRAVELS</p>
+				<a href="index.jsp"><p>TRAVELS</p></a>
 				<input type="text">
 				<input type="button" value="Search">
 				<%// 设置登录/注册按钮或显示登录用户信息 %>
