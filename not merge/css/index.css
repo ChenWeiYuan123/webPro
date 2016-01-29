@@ -1,0 +1,253 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	border: 0;	
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	font-family: "微软雅黑", sans-serif;
+	color: #ffffff;
+	background-color: white;
+	position:absolute;
+	z-index:1;
+}
+input:hover{
+	opacity: 0.8;
+}
+.head{
+	width: 100%;
+	/*background-image: url("2.jpg");*/
+	background-position:center;
+	background-color: #37AE60;
+}
+.head-nav{
+	
+	width: 100%;
+	background-color: #000;
+	opacity: 0.4;
+}
+.head-nav p{
+	/*TRAVELS*/
+	
+	margin: 1.5% 1.5%;
+	display: inline;
+	font-size: 150%;	
+}
+.head-nav input{
+	
+	margin: 1.5% 0em;
+	display: inline-block;
+	border: 0px;
+	font-size: 150%;
+}
+.head-nav input[type=button]{
+	
+}
+#Login{
+	
+	margin: 1.5% 0.1.5% 1.5% 0;
+	border: 0px;
+	float: right;
+}
+#register{
+	
+	margin: 1.5% 1.5% 1.5% 0;
+	border: 0px;
+	float: right;
+}
+
+
+.head-main{
+	
+	padding-bottom: 6%;
+	text-align: center;
+}
+.head-main p{
+	font-size: 400%;
+	color: #E7FEE0;
+}
+.head-main-button button{
+	padding: 1.5%;
+	margin: 0em 1.5%;
+	font-size: 150%;
+	border: 0px;
+	color: #37AE60;
+	background-color: #E7FEE0;
+	opacity: 0.9;
+}
+.head-main-button button:hover{
+	opacity: 0.6;
+}
+
+.user_status {
+float: right;
+margin-right: 20px;
+margin-top: 15px;
+}
+
+/*------------------------------------------*/
+
+.main{
+	width: 100%;
+	text-align: center;
+}
+.main-nav{
+	margin: 2em;
+	font-size: 200%;
+	color: #37AE60;
+	cursor: pointer;
+}
+.main-nav span+span{
+	color: #878E80;
+}
+.main-list{
+	margin: 1em;
+	padding: 1em;
+	text-align: center;
+}
+.main-list-block{
+	margin: 1em;
+}
+.main-list-block-img{
+	display: inline-block;
+	margin: 1em;
+	width: 25em;
+	/*height: 20em;	*/
+	color: #37AE60;
+	cursor: pointer;
+	color: #000;
+}
+.main-list-block-img:hover{
+	opacity: 0.7;
+
+}
+.main-list-block-img b{
+	font-size: 130%;
+}
+
+.friend-list{
+	margin: 1em;
+	padding: 1em;
+	text-align: center;
+}
+.friend-list-block{
+	width: 40em;
+	margin: auto auto;
+	background-color: #f0f0f0;
+	margin-top: 2em;
+	padding: 1em;
+	text-align: left;
+}
+.friend-list-block-headImg{
+	
+	display: inline-block;
+	width: 5em;
+	height: 5em;	
+	color: #37AE60;
+	cursor: pointer;
+}
+.friend-list-block-comment{
+	margin-left: 3em;
+	display: inline-block;
+	color: #000;
+}
+.friend-list-block-img{
+	padding-top: 2em;
+	
+	display: inline-block;
+	margin-left: 8em;
+	width: 30em;
+	height: 30em;	
+	color: #37AE60;
+	cursor: pointer;
+	color: #000;
+}
+.friend-list-block-img img:hover{
+	opacity: 0.7;
+
+}
+
+/*-------------------------------------------------*/
+
+.user{
+	position: absolute;
+	top: 35%;
+	left: 0;
+	right: 0;
+	font-family: "微软雅黑", sans-serif;
+	opacity: 0.95;
+	z-index: 9;
+	color: #606270;
+	background-color: #F9FFF0;
+	width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #606270;
+	text-align: center;
+	transition: opacity 0.5s;
+	-webkit-transition:opacity 0.5s;
+}
+.user input{
+	margin:8%;
+}
+.user input[type=submit]{
+	width: 100%;
+	margin: 8% 0 0;
+	font-family: "微软雅黑", sans-serif;
+	font-size: 130%;	
+	background-color: #57BE80;;
+	padding: 5% 0;
+	 cursor: pointer;
+	 color: #FFF;
+	 border-top: 0px;
+	 border-right: 0px;
+	 border-left: 0px;
+	 border-bottom: 1px solid #606270;
+}
+.user-title{
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.user-title span{
+	width: 30%;
+	display: inline-block;
+	cursor: pointer;
+	margin: 8% 0em 8%;
+}
+.form2 input[type=submit]{
+	background-color: #a66270;
+
+} 
+.display{
+	display: block;
+	
+	transition: display 1s;
+	-webkit-transition:display 1s;
+	transition: opacity 1s;
+	-webkit-transition:opacity 1s;
+}
+.hidden{
+	/*visibility: hidden;*/
+	display: none;
+	opacity: 0;
+	transition: display 1s;
+	-webkit-transition:display 1s;
+	transition: opacity 1s;
+	-webkit-transition:opacity 1s;
+}
+.background{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;	
+	background-color: #000000;
+	opacity: 0.7;
+	transition: display 1s;
+	-webkit-transition:display 1s;
+	transition: opacity 1s;
+	-webkit-transition:opacity 1s;
+	/*transition: display 1s;*/
+	 /*-webkit-transition:display 1s;*/
+}
